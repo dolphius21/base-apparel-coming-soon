@@ -4,8 +4,14 @@ $error: hsl(0, 93%, 68%);
 $gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
 $gradient-dark: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
 
-@mixin media-lg {
+@mixin media-md {
   @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (min-width: 992px) {
     @content;
   }
 }
@@ -24,14 +30,23 @@ body {
 
 .container {
   max-width: 1440px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .main {
-  @include media-lg {
+  @include media-md {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
+    align-content: center;
+    min-height: 100vh;
+  }
+}
+
+.content-container {
+  @include media-md {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
@@ -39,8 +54,8 @@ body {
   width: 100%;
   padding: 2rem;
 
-  @include media-lg {
-    padding-bottom: 15%;
+  @include media-md {
+    padding: 2rem 2rem 0 2rem;
   }
 }
 
@@ -48,7 +63,7 @@ body {
   width: 100%;
   margin-bottom: 4rem;
 
-  @include media-lg {
+  @include media-md {
     display: none;
   }
 
@@ -62,9 +77,10 @@ body {
   text-align: center;
   margin: 2rem;
 
-  @include media-lg {
+  @include media-md {
     text-align: left;
-    width: 450px;
+    max-width: 450px;
+    justify-self: center;
   }
 
   .heading {
@@ -75,7 +91,7 @@ body {
     letter-spacing: 1rem;
     line-height: 1.1;
 
-    @include media-lg {
+    @include media-md {
       width: 200px;
     }
 
@@ -89,6 +105,7 @@ body {
   p {
     color: $primary-color;
     line-height: 1.8;
+    margin-bottom: 2rem;
   }
 }
 
@@ -98,9 +115,11 @@ body {
   position: relative;
   display: flex;
 
-  @include media-lg {
-    width: 450px;
-    margin: 0 0 3rem 2rem;
+  @include media-md {
+    max-width: 450px;
+    margin: 0;
+    justify-self: center;
+    width: 100%;
   }
 
   .email-input {
@@ -130,7 +149,7 @@ body {
     outline: none;
     cursor: pointer;
 
-    @include media-lg {
+    @include media-md {
       padding: 1rem 2.25rem;
     }
 
@@ -147,17 +166,23 @@ body {
 .img-desktop {
   display: none;
 
-  @include media-lg {
+  @include media-md {
     display: block;
     position: relative;
-    width: 100%;
+    place-self: center;
   }
 
   img {
-    min-height: 100vh;
     display: block;
-    position: absolute;
-    right: 0;
+    margin: auto;
+
+    @include media-md {
+      width: 95%;
+    }
+
+    @include media-lg {
+      width: 100%;
+    }
   }
 }
 
@@ -165,9 +190,10 @@ body {
   text-align: center;
   margin-bottom: 2rem;
 
-  @include media-lg {
+  @include media-md {
     text-align: left;
     margin-left: 2rem;
+    margin-bottom: 0;
   }
 
   p {
