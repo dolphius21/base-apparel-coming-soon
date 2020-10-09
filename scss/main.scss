@@ -1,7 +1,7 @@
 $primary-color: hsl(0, 36%, 70%);
 $text-color: hsl(0, 6%, 24%);
 $error: hsl(0, 93%, 68%);
-$gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
+$gradient-light: linear-gradient(135deg, rgb(248, 189, 189) 0%, rgb(254, 222, 222) 100%);
 $gradient-dark: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
 
 @mixin media-md {
@@ -137,6 +137,29 @@ body {
     }
   }
 
+  .invalid {
+    border: 2px solid $error;
+  }
+
+  .error-icon {
+    position: absolute;
+    align-self: center;
+    right: 70px;
+    display: none;
+
+    @include media-md {
+      right: 95px;
+    }
+  }
+
+  .error-message {
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    color: $error;
+    display: none;
+  }
+
   .submit-btn {
     position: absolute;
     height: 50px;
@@ -148,6 +171,7 @@ body {
     box-shadow: 0 10px 20px -3px $primary-color;
     outline: none;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 
     @include media-md {
       padding: 1rem 2.25rem;
@@ -158,8 +182,17 @@ body {
     }
 
     &:hover {
-      background: hsl(0, 80%, 86%);
+      background: $gradient-light;
     }
+
+    // @keyframes hover {
+    //   0% {
+    //     background: $gradient-dark;
+    //   }
+    //   100% {
+    //     background: hsl(0, 80%, 86%);
+    //   }
+    // }
   }
 }
 

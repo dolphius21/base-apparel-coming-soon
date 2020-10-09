@@ -157,6 +157,33 @@ body {
   color: #ce9797;
 }
 
+.form .invalid {
+  border: 2px solid #f96262;
+}
+
+.form .error-icon {
+  position: absolute;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  right: 70px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .form .error-icon {
+    right: 95px;
+  }
+}
+
+.form .error-message {
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  color: #f96262;
+  display: none;
+}
+
 .form .submit-btn {
   position: absolute;
   height: 50px;
@@ -169,6 +196,8 @@ body {
           box-shadow: 0 10px 20px -3px #ce9797;
   outline: none;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -182,7 +211,7 @@ body {
 }
 
 .form .submit-btn:hover {
-  background: #f8bfbf;
+  background: linear-gradient(135deg, #f8bdbd 0%, #fedede 100%);
 }
 
 .img-desktop {
