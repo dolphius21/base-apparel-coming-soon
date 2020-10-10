@@ -133,7 +133,10 @@ body {
     color: $text-color;
     height: 50px;
     z-index: 2;
-    background: #fff6f6;
+
+    @include media-md {
+      background: #fff6f6;
+    }
 
     &::placeholder {
       color: $primary-color;
