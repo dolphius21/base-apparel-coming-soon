@@ -8,12 +8,12 @@ function validate(email, regex) {
     email.classList.add('valid');
     email.classList.remove('invalid');
     errorIcon.style.display = "none";
-    errorMessage.style.display = "none";
+    errorMessage.style.top = "10px";
   } else {
     email.classList.add('invalid')
     email.classList.remove('valid');
     errorIcon.style.display = "block";
-    errorMessage.style.display = "block";
+    errorMessage.style.top = "55px";
   }
 }
 
