@@ -142,6 +142,7 @@ body {
   color: #413a3a;
   height: 50px;
   z-index: 2;
+  background: #fff6f6;
 }
 
 .form .email-input::-webkit-input-placeholder {
